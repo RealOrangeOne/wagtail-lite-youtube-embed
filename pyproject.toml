@@ -27,6 +27,9 @@ dependencies = [
     "wagtail>=4.0"
 ]
 
+[tool.flit.module]
+name = "lite_youtube_embed"
+
 [project.optional-dependencies]
 dev = [
     "ruff",
