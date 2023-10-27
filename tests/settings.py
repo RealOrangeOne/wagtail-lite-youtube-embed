@@ -54,7 +54,7 @@ DATABASES = {
 
 WAGTAILEMBEDS_FINDERS = [
     {
-        "class": "lite_youtube_embed.embed.LiteYouTubeEmbedFinder",
+        "class": "lite_youtube_embed.LiteYouTubeEmbedFinder",
     },
     {
         "class": "wagtail.embeds.finders.oembed",

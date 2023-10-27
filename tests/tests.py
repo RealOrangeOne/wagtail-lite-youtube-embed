@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from wagtail.embeds.finders import get_finders
 
-from lite_youtube_embed.embed import LiteYouTubeEmbedFinder
+from lite_youtube_embed import LiteYouTubeEmbedFinder
 
 
 class YouTubeLiteEmbedFinderTestCase(SimpleTestCase):
