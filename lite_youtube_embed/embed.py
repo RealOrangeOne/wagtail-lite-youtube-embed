@@ -1,4 +1,5 @@
 import re
+from typing import Dict, List
 
 from django.utils.html import format_html
 from wagtail.embeds.finders.oembed import OEmbedFinder
@@ -15,7 +16,7 @@ class LiteYouTubeEmbedFinder(OEmbedFinder):
     EMBED_ID_RE = re.compile(r"\/embed\/(.*?)\?")
 
     def __init__(
-        self, providers: list[dict] | None = None, options: dict | None = None
+        self, providers: List[Dict] | None = None, options: Dict | None = None
     ):
         super().__init__(providers=[youtube], options=options)
 
@@ -26,7 +27,7 @@ class LiteYouTubeEmbedFinder(OEmbedFinder):
             raise ValueError(f"Unable to find video id in {html}")
         return matched.group(1)
 
-    def find_embed(self, *args: list, **kwargs: dict) -> dict:
+    def find_embed(self, *args: List, **kwargs: Dict) -> Dict:
         result = super().find_embed(*args, **kwargs)
         video_id = self._get_video_id(result["html"])
         result["html"] = format_html(
