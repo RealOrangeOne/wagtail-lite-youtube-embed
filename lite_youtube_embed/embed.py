@@ -1,5 +1,5 @@
 import re
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from django.utils.html import format_html
 from wagtail.embeds.finders.oembed import OEmbedFinder
@@ -16,7 +16,7 @@ class LiteYouTubeEmbedFinder(OEmbedFinder):
     EMBED_ID_RE = re.compile(r"\/embed\/(.*?)\?")
 
     def __init__(
-        self, providers: List[Dict] | None = None, options: Dict | None = None
+        self, providers: Optional[List[Dict]] = None, options: Optional[Dict] = None
     ):
         super().__init__(providers=[youtube], options=options)
 
