@@ -37,6 +37,8 @@ SECRET_KEY = "abcde12345"
 
 ROOT_URLCONF = "tests.urls"
 
+STATIC_URL = "/static/"
+
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 MIDDLEWARE = [
