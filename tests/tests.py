@@ -1,5 +1,6 @@
 from django.test import SimpleTestCase
 from wagtail.embeds.finders import get_finders
+from wagtail.embeds.finders.oembed import OEmbedFinder
 
 from lite_youtube_embed import LiteYouTubeEmbedFinder
 
@@ -25,3 +26,15 @@ class YouTubeLiteEmbedFinderTestCase(SimpleTestCase):
 
     def test_in_finders(self):
         self.assertIsInstance(get_finders()[0], LiteYouTubeEmbedFinder)
+
+    def test_reject_other_embed(self):
+        self.assertFalse(
+            LiteYouTubeEmbedFinder().accept(
+                "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8"
+            )
+        )
+        self.assertTrue(
+            OEmbedFinder().accept(
+                "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8"
+            )
+        )
