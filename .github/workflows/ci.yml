@@ -13,14 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
         django-version: ["4.2", "5.0"]
-        wagtail-version: ["5.2", "6.0", "6.1"]
-        exclude:
-          - django-version: "5.0"
-            python-version: "3.8"
-          - django-version: "5.0"
-            python-version: "3.9"
+        wagtail-version: ["5.2", "6.2"]
+        include:
+          - python-version: "3.12"
+            django-version: "5.1"
+            wagtail-version: "6.3"
 
     steps:
       - uses: actions/checkout@v3
