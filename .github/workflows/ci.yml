@@ -20,6 +20,11 @@ jobs:
           - python-version: "3.12"
             django-version: "5.1"
             wagtail-version: "6.3"
+        exclude:
+          - python-version: "3.9"
+            django-version: "5.0"
+          - python-version: "3.9"
+            django-version: "5.1"
 
     steps:
       - uses: actions/checkout@v3
