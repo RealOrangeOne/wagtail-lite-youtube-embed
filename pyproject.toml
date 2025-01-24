@@ -49,10 +49,9 @@ name = "lite_youtube_embed"
 [project.optional-dependencies]
 dev = [
     "ruff",
-    "black",
 ]
 
 
-[tool.ruff]
-select = ["E", "F", "I", "W", "N", "B", "A", "C4"]
-ignore = ["E501"]
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "N", "B", "A", "C4", "T20", "DJ"]
+ignore = ["E501", "DJ008"]
