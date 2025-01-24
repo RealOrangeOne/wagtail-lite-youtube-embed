@@ -45,7 +45,9 @@ jobs:
           pip install -U Django==${{ matrix.django-version }}
           pip install -U Wagtail==${{ matrix.wagtail-version }}
       - name: Run tests
-        run: ./manage.py test
+        run: |
+          coverage run -m manage test
+          coverage report
       - name: Format
         run: ruff format --check lite_youtube_embed tests
       - name: Lint

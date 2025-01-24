@@ -49,6 +49,7 @@ name = "lite_youtube_embed"
 [project.optional-dependencies]
 dev = [
     "ruff",
+    "coverage"
 ]
 
 
