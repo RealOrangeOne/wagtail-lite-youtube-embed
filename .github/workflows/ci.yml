@@ -28,6 +28,8 @@ jobs:
           # Django versions not compatible with python 3.13
           - python-version: "3.13"
             django-version: "4.2"
+          - python-version: "3.13"
+            django-version: "5.0"
 
           # Wagtail versions not compatible with Django versions
           - wagtail-version: "5.2"
