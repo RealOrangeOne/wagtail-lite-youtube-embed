@@ -31,7 +31,7 @@ class LiteYouTubeEmbedFinder(OEmbedFinder):
         result = super().find_embed(*args, **kwargs)
         video_id = self._get_video_id(result["html"])
         result["html"] = format_html(
-            "<lite-youtube videoid='{}' playlabel='{}' backgroundImage='{}'></lite-youtube>",
+            "<lite-youtube videoid='{}' title='{}' backgroundImage='{}'></lite-youtube>",
             video_id,
             result["title"],
             result["thumbnail_url"],
