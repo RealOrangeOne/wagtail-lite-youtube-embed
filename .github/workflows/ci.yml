@@ -14,17 +14,32 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        django-version: ["4.2", "5.0", "5.1"]
-        wagtail-version: ["5.2", "6.2", "6.3", "6.4"]
+        django-version: ["4.2", "5.0", "5.1", "5.2"]
+        wagtail-version: ["5.2", "6.2", "6.3", "6.4", "7.0"]
         exclude:
+          # Django versions not compatible with python 3.9
           - python-version: "3.9"
             django-version: "5.0"
           - python-version: "3.9"
             django-version: "5.1"
+          - python-version: "3.9"
+            django-version: "5.2"
+
+          # Django versions not compatible with python 3.13
+          - python-version: "3.13"
+            django-version: "4.2"
+          - python-version: "3.13"
+            django-version: "5.0"
+
+          # Wagtail versions not compatible with Django versions
           - wagtail-version: "5.2"
             django-version: "5.1"
+          - wagtail-version: "5.2"
+            django-version: "5.2"
           - wagtail-version: "6.2"
             django-version: "5.1"
+          - wagtail-version: "6.2"
+            django-version: "5.2"
 
     steps:
       - uses: actions/checkout@v4
