@@ -26,4 +26,18 @@ WAGTAILEMBEDS_FINDERS = [
 ]
 ```
 
+Additional parameters can be passed using the `params` option:
+
+```python
+{
+    "class": "lite_youtube_embed.LiteYouTubeEmbedFinder",
+    "options": {
+        "params": {
+            "params": "controls=0",
+            "playlabel": "Play Video",
+        }
+    }
+},
+```
+
 Note: This library does not configure your frontend to use `lite-youtube` - you will need to install and load this yourself.
