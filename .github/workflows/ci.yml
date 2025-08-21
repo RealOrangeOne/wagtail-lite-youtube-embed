@@ -15,7 +15,7 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
         django-version: ["4.2", "5.1", "5.2"]
-        wagtail-version: ["6.3", "6.4", "7.0"]
+        wagtail-version: ["6.3", "7.0", "7.1"]
         exclude:
           # Django versions not compatible with python 3.9
           - python-version: "3.9"
