@@ -1,7 +1,8 @@
 import re
 from typing import Any, Dict, List, Optional
 
-from django.utils.html import format_html
+from django.forms.utils import flatatt
+from django.utils.safestring import mark_safe
 from wagtail.embeds.finders.oembed import OEmbedFinder
 from wagtail.embeds.oembed_providers import youtube
 
@@ -20,6 +21,8 @@ class LiteYouTubeEmbedFinder(OEmbedFinder):
     ):
         super().__init__(providers=[youtube], options=options)
 
+        self.params = options.get("params", {}) if options else {}
+
     @classmethod
     def _get_video_id(cls, html: str) -> str:
         matched = cls.VIDEO_ID_RE.search(html)
@@ -30,10 +33,14 @@ class LiteYouTubeEmbedFinder(OEmbedFinder):
     def find_embed(self, *args: Any, **kwargs: Any) -> Dict:
         result = super().find_embed(*args, **kwargs)
         video_id = self._get_video_id(result["html"])
-        result["html"] = format_html(
-            "<lite-youtube videoid='{}' title='{}' backgroundImage='{}'></lite-youtube>",
-            video_id,
-            result["title"],
-            result["thumbnail_url"],
-        )
+
+        attrs = {
+            "videoid": video_id,
+            "title": result["title"],
+            "backgroundImage": result["thumbnail_url"],
+            **self.params,
+        }
+
+        result["html"] = mark_safe(f"<lite-youtube{flatatt(attrs)}></lite-youtube>")
+
         return result
