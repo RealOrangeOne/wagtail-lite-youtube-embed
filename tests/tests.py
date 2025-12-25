@@ -38,3 +38,10 @@ class YouTubeLiteEmbedFinderTestCase(SimpleTestCase):
                 "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8"
             )
         )
+
+    def test_params(self):
+        html = LiteYouTubeEmbedFinder(
+            options={"params": {"params": "controls=0"}}
+        ).find_embed("https://www.youtube.com/watch?v=dQw4w9WgXcQ")["html"]
+
+        self.assertIn('params="controls=0"', html)
