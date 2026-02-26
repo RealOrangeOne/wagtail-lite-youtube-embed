@@ -47,9 +47,7 @@ jobs:
           python -m pip install --upgrade flit
           flit install --deps=all
       - name: Install specific dependencies
-        run: |
-          pip install -U Django==${{ matrix.django-version }}
-          pip install -U Wagtail==${{ matrix.wagtail-version }}
+        run: pip install -U Django==${{ matrix.django-version }} Wagtail==${{ matrix.wagtail-version }}
       - name: Run tests
         run: |
           coverage run -m manage test
