@@ -14,7 +14,6 @@ classifiers = [
     "License :: OSI Approved",
     "License :: OSI Approved :: BSD License",
     "Framework :: Wagtail",
-    "Framework :: Wagtail :: 6",
     "Framework :: Wagtail :: 7",
     "Framework :: Django",
     "Framework :: Django :: 4.2",
@@ -35,7 +34,7 @@ classifiers = [
 requires-python = ">=3.10"
 
 dependencies = [
-    "wagtail>=6.3",
+    "wagtail>=7.0",
     "Django>=4.2"
 ]
 
