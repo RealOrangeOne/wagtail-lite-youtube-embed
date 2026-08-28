@@ -1,24 +1,25 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
+requires = ["flit_core >=3.11,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
 name = "wagtail-lite-youtube-embed"
-description = ""
+description = "A Wagtail embed finder for efficient and private YouTube embeds using lite-youtube."
 authors = [
     {name = "Jake Howard"},
 ]
 version = "0.3.0"
 readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
 classifiers = [
-    "License :: OSI Approved",
-    "License :: OSI Approved :: BSD License",
     "Framework :: Wagtail",
     "Framework :: Wagtail :: 7",
+    "Framework :: Wagtail :: 8",
     "Framework :: Django",
-    "Framework :: Django :: 4.2",
     "Framework :: Django :: 5.2",
     "Framework :: Django :: 6.0",
+    "Framework :: Django :: 6.1",
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
@@ -35,7 +36,7 @@ requires-python = ">=3.10"
 
 dependencies = [
     "wagtail>=7.0",
-    "Django>=4.2"
+    "Django>=5.2"
 ]
 
 [project.urls]
